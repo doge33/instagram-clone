@@ -1,4 +1,5 @@
 <?php
+//a model represents a table in the database!
 
 namespace App\Models;
 
@@ -13,12 +14,14 @@ class User extends Authenticatable
 
     /**
      * The attributes that are mass assignable.
+     * //an extra layer of protection so that malicious users can't fill in stuff
      *
      * @var array
      */
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
     ];
 
@@ -40,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }

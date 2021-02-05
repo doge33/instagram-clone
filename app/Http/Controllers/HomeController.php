@@ -1,5 +1,5 @@
 <?php
-
+// this controller is not being used
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth'); //this means the view of home is only visible after login(authentication); but it's not really being used
     }
 
     /**
